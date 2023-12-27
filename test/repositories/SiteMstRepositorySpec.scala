@@ -38,8 +38,8 @@ class SiteMstRepositorySpec extends PlaySpec with Results with GuiceOneAppPerSui
     )(block)
   }
 
-  "SiteMstRepository select" should {
-    "find all" taggedAs DbSelect in {
+  "find" should {
+    "引数がNoneの場合、全件取得する" in {
 
       // DBから期待値を取得
       val expectedList = withMyDatabase { database =>
@@ -60,7 +60,7 @@ class SiteMstRepositorySpec extends PlaySpec with Results with GuiceOneAppPerSui
       result mustBe expectedList
     }
 
-    "find single" taggedAs DbSelect in {
+    "引数がある場合、1件だけ取得する" in {
 
       // DBから期待値を取得
       val expectedList = withMyDatabase { database =>
@@ -83,8 +83,8 @@ class SiteMstRepositorySpec extends PlaySpec with Results with GuiceOneAppPerSui
 
   }
 
-  "SiteMstRepository insert update delete" ignore {
-    "insert" taggedAs DbUpdate in {
+  "insert" should {
+    "insert成功" taggedAs DBInsUpdDel in {
       // 引数
       val siteMst = SiteMst(958989, "単体テスト2")
 
