@@ -1,0 +1,17 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+GET     /                                   controllers.HomeController.index
+
+# DB access
+GET     /getSite                            controllers.DBController.getSite
+POST    /insertSite                         controllers.DBController.insertSite
+POST    /updateSite                         controllers.DBController.updateSite
+POST    /deleteSite                         controllers.DBController.deleteSite
+GET     /testTransaction                    controllers.DBController.testTransaction
+
+# File DL&UP
+GET     /download                           controllers.FileController.download
+POST    /upload                             controllers.FileController.upload
