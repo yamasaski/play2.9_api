@@ -14,3 +14,9 @@ server.pid
 *.eml
 /dist/
 .cache
+
+.idea
+.bsp
+
+application.conf
+test.conf
