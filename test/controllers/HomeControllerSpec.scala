@@ -17,8 +17,8 @@ import tag.*
 
 class HomeControllerSpec extends PlaySpec with Results with GuiceOneAppPerSuite with MockitoSugar {
 
-  "HomeController" should {
-    "index" taggedAs NotDB in {
+  "index" should{
+    "ok（テキスト）を返す" taggedAs(Tag("Test"), Tag("Test2")) in {
       val controller = new HomeController(Helpers.stubControllerComponents())
       val result = controller.index.apply(FakeRequest())
       val bodyText = contentAsString(result)

@@ -28,8 +28,8 @@ class DBServiceSpec extends PlaySpec with Results with GuiceOneAppPerSuite with 
   // https://tanoshiilife.wordpress.com/2016/04/20/play-framework-2-4-scala-specs2-guice-di-%E3%81%A7%E3%83%86%E3%82%B9%E3%83%88%E7%B4%A0%E4%BA%BA%E3%81%8C%E3%83%86%E3%82%B9%E3%83%88%E3%81%AB%E6%8C%91%E6%88%A6%E3%81%97%E3%81%9F%E8%A9%B1/
   lazy val siteMstRepository = inject[SiteMstRepository]
 
-  "DBService" should {
-    "getSite" taggedAs NotDB in {
+  "getSite" should {
+    "select成功" in {
       // mock
       val mockSiteMstRepository = mock[SiteMstRepository]
 

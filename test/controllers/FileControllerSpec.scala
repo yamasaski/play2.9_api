@@ -20,8 +20,8 @@ import tag.*
 
 class FileControllerSpec extends PlaySpec with GuiceOneServerPerSuite with Injecting {
 
-  "FileController" must {
-    "upload a file successfully" taggedAs NotDB in {
+  "upload" should {
+    "アップロード成功" in {
       val tmpFile = java.io.File.createTempFile("prefix", "txt")
       tmpFile.deleteOnExit()
       val msg = "hello world"
@@ -33,8 +33,10 @@ class FileControllerSpec extends PlaySpec with GuiceOneServerPerSuite with Injec
       response.status mustBe OK
       response.body mustBe "file size = 11"
     }
+  }
 
-    "download" taggedAs NotDB in {
+  "download" should {
+    "ダウンロード成功" in {
       val controller = new FileController(Helpers.stubMessagesControllerComponents())
       val result: Future[Result] = controller.download.apply(FakeRequest())
       // TODO contentAsBytesでファイルに変換して結果確認しようと思ったけどなんか無理っぽい
